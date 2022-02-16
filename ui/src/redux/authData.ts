@@ -33,21 +33,25 @@ export const counterSlice = createSlice({
     reducers: {
 
         loginToken: (state, action: PayloadAction<string>) => {
+            try {
+                const decodedToken = jwt_decode<JwtExtend>(action.payload);
+                console.log(decodedToken)
+                if (decodedToken && decodedToken.name) {
+                    state.token = action.payload;
+                    state.loggedIn = true;
 
-            const decodedToken = jwt_decode<JwtExtend>(action.payload);
-            console.log(decodedToken)
-            if (decodedToken && decodedToken.name) {
-                state.token = action.payload;
-                state.loggedIn = true;
 
+                    if (decodedToken && decodedToken.exp) {
+                        state.exp = decodedToken.exp;
+                        state.expires = new Date(decodedToken.exp * 1000);
 
-                if (decodedToken && decodedToken.exp) {
-                    state.exp = decodedToken.exp;
-                    state.expires = new Date(decodedToken.exp * 1000);
-
+                    }
+                    state.name = decodedToken.name;
                 }
-                state.name = decodedToken.name;
+            } catch {
+
             }
+
 
         },
 
