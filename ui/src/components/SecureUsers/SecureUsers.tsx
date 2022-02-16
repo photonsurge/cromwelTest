@@ -9,15 +9,15 @@ interface DisplayUsersProp {
   users: any[];
 }
 
-const DisplayUsers: FC<DisplayUsersProp> = (props) => {
+export const DisplayUsers: FC<DisplayUsersProp> = (props) => {
 
   return <div className='row' data-testid="DisplayUsers">
     {props.users.map(user =>
       <div className='col-3 col-md-6' data-testid={`user_${user._id}`} key={user._id} >
-        <h4 data-testid={`user_${user._id}_name`}>{user.name}</h4>
-        <p data-testid={`user_${user._id}_email`}>email: {user.email}</p>
-        <p data-testid={`user_${user._id}_id`}>id: {user._id}</p>
-        <p data-testid={`user_${user._id}_created`}>created: {user.created}</p>
+        <h4 data-testid={`user_name`}>{user.name}</h4>
+        <p data-testid={`user_email`}>email: {user.email}</p>
+        <p data-testid={`user_id`}>id: {user._id}</p>
+        <p data-testid={`user_created`}>created: {user.created}</p>
 
       </div>)}
   </div>

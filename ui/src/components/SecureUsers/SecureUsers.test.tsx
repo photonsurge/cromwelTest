@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from '../../redux/store';
-import SecureUsers from './SecureUsers';
+import SecureUsers, { DisplayUsers } from './SecureUsers';
 
 describe('<SecureUsers />', () => {
   test('it should mount', () => {
@@ -20,12 +20,18 @@ describe('<SecureUsers />', () => {
 describe('<SecureUsers2 />', () => {
   test('it should mount', () => {
 
+    const a: any = { name: 'a', email: 'a@a.com', _id: '1', created: 'test' }
+
+    render(<DisplayUsers users={[{ ...a, _id: '1' }, { ...a, _id: '2' }, { ...a, _id: '3' }]} />);
+
+    const secureUsers = screen.getByTestId('DisplayUsers');
+
+    expect(secureUsers).toBeInTheDocument();
 
 
-    // render(<>);
+    const users = screen.getAllByTestId('user_name');
+    expect(users.length).toEqual(3)
 
-    // const secureUsers = screen.getByTestId('SecureUsers');
 
-    // expect(secureUsers).toBeInTheDocument();
   });
 });
