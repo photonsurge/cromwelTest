@@ -24,12 +24,12 @@ const Navigation: FC<NavigationProps> = () => {
       <Navbar.Collapse className="justify-content-end">
         <Nav className="me-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>
-          {value.loggedIn === false && <Nav.Link as={Link} to="/register">Register</Nav.Link>}
-          {value.loggedIn === true && <Nav.Link as={Link} to="/secure">Secure Page</Nav.Link>}
+          {value.loggedIn === false && <Nav.Link data-testid="register" as={Link} to="/register">Register</Nav.Link>}
+          {value.loggedIn === true && <Nav.Link data-testid="secure" as={Link} to="/secure">Secure Page</Nav.Link>}
         </Nav>
         <Navbar.Text>
 
-          {value.loggedIn === true ? <>Signed in as: {value.name} <button className='btn btn-warning' onClick={logout}>Logout</button></> : <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+          {value.loggedIn === true ? <span data-testid="signedInAs">Signed in as: {value.name} <button data-testid="logout" className='btn btn-warning' onClick={logout}>Logout</button></span> : <Nav.Link data-testid="login" as={Link} to="/login">Login</Nav.Link>}
 
         </Navbar.Text>
       </Navbar.Collapse>

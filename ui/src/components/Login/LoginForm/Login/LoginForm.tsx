@@ -29,7 +29,8 @@ const LoginForm: FC<LoginFormProps> = (props) => {
                 <div className='col-12 col-md-6 offset-md-3'>
                   <label>Email</label>
                   <input data-testid={`${formName}-${input.name}`} id={`${formName}-${input.name}`} className='form-control' type="text" {...input} placeholder="Email" />
-                  {meta.touched && meta.error && <p className='text-danger'>{meta.error}</p>}
+                  {meta.touched && meta.error && <p data-testid={`${formName}-error-${input.name}`} className='text-danger'>{meta.error}</p>}
+
                 </div>
               )}
             </Field>
@@ -38,7 +39,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
                 <div className='col-12 col-md-6 offset-md-3'>
                   <label>Password</label>
                   <input data-testid={`${formName}-${input.name}`} id={`${formName}-${input.name}`} className='form-control' type="password" {...input} />
-                  {meta.touched && meta.error && <p className='text-danger'>{meta.error}</p>}
+                  {meta.touched && meta.error && <p className='text-danger'>{meta.error}</p>} {meta.touched && meta.error && <p data-testid={`${formName}-error-${input.name}`} className='text-danger'>{meta.error}</p>}
                 </div>
               )}
             </Field>

@@ -8,10 +8,26 @@ import Navigation from './Navigation';
 
 describe('<Navigation />', () => {
   test('it should mount', () => {
-    render(<BrowserRouter> <Provider store={store}><Navigation /></Provider></BrowserRouter>);
+    render(<BrowserRouter><Provider store={store}><Navigation /></Provider></BrowserRouter>);
 
     const navigation = screen.getByTestId('Navigation');
 
     expect(navigation).toBeInTheDocument();
+    // screen.debug();
+  });
+
+  test('it should display register and login (not logged in)', () => {
+    render(<BrowserRouter><Provider store={store}><Navigation /></Provider></BrowserRouter>);
+
+    const navigation = screen.getByTestId('Navigation');
+
+    expect(navigation).toBeInTheDocument();
+
+
+
+    expect(screen.getByTestId('register')).toBeInTheDocument();
+    expect(screen.getByTestId('login')).toBeInTheDocument();
+
+
   });
 });
