@@ -23,12 +23,12 @@ yarn install
 yarn dev
 
 
-once both are running browse to http://localhost:3000
+#Once both are running browse to http://localhost:3000
 
-this will run the UI and API and alow testing. However for production this should not be used.
+#This will run the UI and API and alow testing. However for production this should not be used.
 
 
 
-Both the UI and API have unit tests these can be called from each directory by running (note must already of ran 'yarn install')
+#Both the UI and API have unit tests these can be called from each directory by running (note must already of ran 'yarn install')
 
 yarn test
