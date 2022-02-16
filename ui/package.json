@@ -54,12 +54,14 @@
     "@types/enzyme": "^3.10.11",
     "@types/enzyme-adapter-react-15": "^1.0.6",
     "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/react-test-renderer": "^17.0.1",
     "axios-mock-adapter": "^1.20.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-15": "^1.4.3",
     "enzyme-adapter-react-16": "^1.15.6",
     "jest-mock-axios": "^4.5.0",
+    "jsonwebtoken": "^8.5.1",
     "react-test-renderer": "^17.0.2"
   }
 }

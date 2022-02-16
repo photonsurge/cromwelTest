@@ -8,8 +8,6 @@ export interface AuthState {
     token?: string;
     iat?: Date;
     exp?: number
-    expires?: Date;
-    expires1?: Date;
 }
 
 
@@ -23,7 +21,6 @@ interface JwtExtend extends JwtPayload {
 const initialState: AuthState = {
     name: '',
     loggedIn: false,
-    expires: undefined
 }
 
 export const counterSlice = createSlice({
@@ -35,7 +32,6 @@ export const counterSlice = createSlice({
         loginToken: (state, action: PayloadAction<string>) => {
             try {
                 const decodedToken = jwt_decode<JwtExtend>(action.payload);
-                console.log(decodedToken)
                 if (decodedToken && decodedToken.name) {
                     state.token = action.payload;
                     state.loggedIn = true;
@@ -43,7 +39,6 @@ export const counterSlice = createSlice({
 
                     if (decodedToken && decodedToken.exp) {
                         state.exp = decodedToken.exp;
-                        state.expires = new Date(decodedToken.exp * 1000);
 
                     }
                     state.name = decodedToken.name;
