@@ -1,27 +1,16 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import axios from "axios";
-import MockAdapter from "axios-mock-adapter";
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import onSubmitTest from '../../../__tests/onSubmitTest';
 import RegisterForm, { IRegisterForm } from './RegisterForm';
+
 jest.mock('../../../__tests/onSubmitTest');
 
 
 describe('<RegisterForm />', () => {
-  let mock: MockAdapter;
 
-  beforeAll(() => {
-    configure({ adapter: new Adapter() });
-    mock = new MockAdapter(axios);
-    mock.onGet(`/api/users/checkUser`).reply(200, { ok: true });
-  });
 
-  afterEach(() => {
-    mock.reset();
-  });
+
 
   test('it should mount', () => {
     const mockedFoo = jest.mocked(onSubmitTest, true)
