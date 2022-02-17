@@ -27,6 +27,7 @@ yarn dev
 
 #This will run the UI and API and alow testing. However for production this should not be used.
 
+#for production the result of 'yarn build' for UI should be hosted using a appropriate application e.g. nginx and the api ran in a container/behind firewall with a proxy to redirect traffic although this was out of scope for this assessment,
 
 
 
